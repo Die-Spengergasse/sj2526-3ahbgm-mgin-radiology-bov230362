@@ -8,7 +8,7 @@ import jakarta.persistence.ManyToOne;
 import java.time.LocalDateTime;
 
 @Entity
-public class Reservierung {
+public class Reservation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,11 +18,11 @@ public class Reservierung {
     private Patient patient;
 
     @ManyToOne
-    private Geraet geraet;
+    private Device device;
 
-    private LocalDateTime zeit;
-    private String koerperregion;
-    private String kommentar;
+    private LocalDateTime time;
+    private String bodyregion;
+    private String comment;
 
     public Long getId() {
         return id;
@@ -36,35 +36,35 @@ public class Reservierung {
         this.patient = patient;
     }
 
-    public Geraet getGeraet() {
-        return geraet;
+    public Device getGeraet() {
+        return device;
     }
 
-    public void setGeraet(Geraet geraet) {
-        this.geraet = geraet;
+    public void setGeraet(Device geraet) {
+        this.device = geraet;
     }
 
     public LocalDateTime getZeit() {
-        return zeit;
+        return time;
     }
 
     public void setZeit(LocalDateTime zeit) {
-        this.zeit = zeit;
+        this.time = time;
     }
 
     public String getKoerperregion() {
-        return koerperregion;
+        return bodyregion;
     }
 
     public void setKoerperregion(String koerperregion) {
-        this.koerperregion = koerperregion;
+        this.bodyregion = bodyregion;
     }
 
     public String getKommentar() {
-        return kommentar;
+        return comment;
     }
 
     public void setKommentar(String kommentar) {
-        this.kommentar = kommentar;
+        this.comment = comment;
     }
 }

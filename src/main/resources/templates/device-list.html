@@ -10,9 +10,9 @@
   <h2>Select a Device</h2>
 
   <ul class="list-group">
-    <li class="list-group-item" th:each="g : ${geraete}">
-      <a th:href="@{'/geraet/' + ${g.id}}"
-         th:text="${g.bezeichnung + ' - ' + g.art + ' - Room ' + g.standort}">
+    <li class="list-group-item" th:each="g : ${devices}">
+      <a th:href="@{'/device/' + ${d.id}}"
+         th:text="${d.bezeichnung + ' - ' + d.art + ' - Room ' + d.standort}">
       </a>
     </li>
   </ul>

@@ -19,11 +19,11 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="r : ${reservierungen}">
+        <tr th:each="r : ${reservations}">
             <td th:text="${r.patient.firstName + ' ' + r.patient.lastName}"></td>
-            <td th:text="${r.zeit}"></td>
-            <td th:text="${r.koerperregion}"></td>
-            <td th:text="${r.kommentar}"></td>
+            <td th:text="${r.time}"></td>
+            <td th:text="${r.bodyregion}"></td>
+            <td th:text="${r.comment}"></td>
         </tr>
         </tbody>
     </table>

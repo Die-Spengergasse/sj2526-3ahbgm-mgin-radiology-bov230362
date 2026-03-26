@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface ReservierungRepository extends JpaRepository<Reservierung, Long> {
-    List<Reservierung> findByGeraetId(Long id);
+public interface ReservationRepository extends JpaRepository<Reservation, Long> {
+    List<Reservation> findByDeviceId(Long id);
 }
