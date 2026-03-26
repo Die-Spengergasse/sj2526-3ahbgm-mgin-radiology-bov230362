@@ -34,7 +34,7 @@ public class ReservationController {
     @PostMapping("/reservation")
     public String saveReservation(@ModelAttribute Reservation reservation) {
         reservationRepository.save(reservation);
-        return "redirect:/reservation";
+        return "redirect:/reservation/list";
     }
 
     @GetMapping("/reservation/list")

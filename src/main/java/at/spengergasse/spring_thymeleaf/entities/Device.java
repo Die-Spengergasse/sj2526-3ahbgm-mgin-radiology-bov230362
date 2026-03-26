@@ -1,9 +1,6 @@
 package at.spengergasse.spring_thymeleaf.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Device {
@@ -12,35 +9,35 @@ public class Device {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String bezeichnung;
-    private String art;
-    private String standort;
+    private String name;
+    private String type;
+    private String location;
 
     public Long getId() {
         return id;
     }
 
-    public String getBezeichnung() {
-        return bezeichnung;
+    public String getName() {
+        return name;
     }
 
-    public void setBezeichnung(String bezeichnung) {
-        this.bezeichnung = bezeichnung;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getArt() {
-        return art;
+    public String getType() {
+        return type;
     }
 
-    public void setArt(String art) {
-        this.art = art;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public String getStandort() {
-        return standort;
+    public String getLocation() {
+        return location;
     }
 
-    public void setStandort(String standort) {
-        this.standort = standort;
+    public void setLocation(String location) {
+        this.location = location;
     }
 }

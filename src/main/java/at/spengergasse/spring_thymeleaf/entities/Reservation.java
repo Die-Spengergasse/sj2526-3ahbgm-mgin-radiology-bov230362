@@ -1,10 +1,6 @@
 package at.spengergasse.spring_thymeleaf.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
@@ -20,8 +16,8 @@ public class Reservation {
     @ManyToOne
     private Device device;
 
-    private LocalDateTime time;
-    private String bodyregion;
+    private LocalDateTime dateTime;
+    private String bodyRegion;
     private String comment;
 
     public Long getId() {
@@ -36,35 +32,35 @@ public class Reservation {
         this.patient = patient;
     }
 
-    public Device getGeraet() {
+    public Device getDevice() {
         return device;
     }
 
-    public void setGeraet(Device geraet) {
-        this.device = geraet;
+    public void setDevice(Device device) {
+        this.device = device;
     }
 
-    public LocalDateTime getZeit() {
-        return time;
+    public LocalDateTime getDateTime() {
+        return dateTime;
     }
 
-    public void setZeit(LocalDateTime zeit) {
-        this.time = time;
+    public void setDateTime(LocalDateTime dateTime) {
+        this.dateTime = dateTime;
     }
 
-    public String getKoerperregion() {
-        return bodyregion;
+    public String getBodyRegion() {
+        return bodyRegion;
     }
 
-    public void setKoerperregion(String koerperregion) {
-        this.bodyregion = bodyregion;
+    public void setBodyRegion(String bodyRegion) {
+        this.bodyRegion = bodyRegion;
     }
 
-    public String getKommentar() {
+    public String getComment() {
         return comment;
     }
 
-    public void setKommentar(String kommentar) {
+    public void setComment(String comment) {
         this.comment = comment;
     }
 }

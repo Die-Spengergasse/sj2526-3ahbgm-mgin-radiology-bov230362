@@ -9,9 +9,10 @@
 <div class="container">
     <h2>Create Reservation</h2>
 
-    <form action="/reservation" method="post">
+    <form th:action="@{/reservation}" th:object="${reservation}" method="post">
+
         <label>Patient</label>
-        <select name="patient.id" class="form-control">
+        <select th:field="*{patient}" class="form-control">
             <option th:each="p : ${patients}"
                     th:value="${p.id}"
                     th:text="${p.firstName + ' ' + p.lastName}">
@@ -19,24 +20,24 @@
         </select>
 
         <label>Device</label>
-        <select name="device.id" class="form-control">
-            <option th:each="g : ${devices}"
-                    th:value="${g.id}"
-                    th:text="${g.bezeichnung + ' - ' + g.art + ' - Room ' + g.standort}">
+        <select th:field="*{device}" class="form-control">
+            <option th:each="d : ${devices}"
+                    th:value="${d.id}"
+                    th:text="${d.name + ' - ' + d.type + ' - ' + d.location}">
             </option>
         </select>
 
-        <label>Reservation Time</label>
-        <input type="datetime-local" name="time" class="form-control">
+        <label>Date and Time</label>
+        <input type="datetime-local" th:field="*{dateTime}" class="form-control">
 
         <label>Body Region</label>
-        <input type="text" name="bodyregion" class="form-control">
+        <input type="text" th:field="*{bodyRegion}" class="form-control">
 
         <label>Comment</label>
-        <textarea name="comment" class="form-control"></textarea>
+        <textarea th:field="*{comment}" class="form-control"></textarea>
 
         <br>
-        <button type="submit" class="btn btn-success">Save Reservation</button>
+        <button type="submit" class="btn btn-primary">Save Reservation</button>
     </form>
 </div>
 </body>
