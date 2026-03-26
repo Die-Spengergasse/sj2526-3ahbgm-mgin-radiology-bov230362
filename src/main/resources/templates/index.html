@@ -3,19 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <title>Radiology Institute</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <style>
+        body {
+            background: linear-gradient(to right, #ffe0ec, #ffe8cc);
+            font-family: Arial, sans-serif;
+        }
+
+        .header {
+            text-align: center;
+            margin-top: 40px;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            color: #d63384;
+            font-weight: bold;
+        }
+
+        .card {
+            padding: 25px;
+            border-radius: 15px;
+            background-color: white;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .btn-primary {
+            background-color: #ff4da6;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #e60073;
+        }
+
+        .btn-success {
+            background-color: #ff944d;
+            border: none;
+        }
+
+        .btn-success:hover {
+            background-color: #ff751a;
+        }
+
+        .btn-default {
+            border-radius: 20px;
+        }
+
+        .btn-block {
+            margin-top: 10px;
+            border-radius: 20px;
+        }
+    </style>
 </head>
 <body>
-<div class="container">
-    <h1>Radiology Institute</h1>
-    <p>Date: <span th:text="${today}"></span></p>
 
-    <ul>
-        <li><a href="/patient/add">Register new patient</a></li>
-        <li><a href="/patient/list">Patient list</a></li>
-        <li><a href="/reservation">Create reservation</a></li>
-        <li><a href="/reservation/list">Reservation list by device</a></li>
-    </ul>
+<div class="container">
+
+    <div class="header">
+        <h1>Radiology Institute</h1>
+        <p class="text-muted">Manage patients, devices and reservations</p>
+        <p><strong>Date:</strong> <span th:text="${today}"></span></p>
+    </div>
+
+    <div class="row">
+
+        <!-- Patients -->
+        <div class="col-md-4">
+            <div class="card text-center">
+                <h3>Patients</h3>
+                <p>Register and view patients</p>
+
+                <a href="/patient/add" class="btn btn-primary btn-block">
+                    Register Patient
+                </a>
+
+                <a href="/patient/list" class="btn btn-default btn-block">
+                    Patient List
+                </a>
+            </div>
+        </div>
+
+        <!-- Reservations -->
+        <div class="col-md-4">
+            <div class="card text-center">
+                <h3>Reservations</h3>
+                <p>Create and manage bookings</p>
+
+                <a href="/reservation" class="btn btn-success btn-block">
+                    Create Reservation
+                </a>
+
+                <a href="/reservation/list" class="btn btn-default btn-block">
+                    View by Device
+                </a>
+            </div>
+        </div>
+
+        <!-- Info -->
+        <div class="col-md-4">
+            <div class="card text-center">
+                <h3>System</h3>
+                <p>Radiology system overview</p>
+
+                <p class="text-muted">
+                    Patients, devices and reservations are connected.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
 </div>
+
 </body>
 </html>
