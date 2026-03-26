@@ -1,17 +1,37 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/html">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>add new patient</title>
+    <title>Register Patient</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
 <body>
-    <div class="container">
-        <form th:action="@{/patient/add}" th:object="${patient}" method="post">
-            <input type="text" th:field="*{name}" class="form-control" placeholder="patient name">
-            birth date <input type="date" th:field="*{birth}" class="form-control">
-            <input type="submit" class="form-control" value="Save">
-        </form>
-    </div>
+<div class="container">
+    <h2>Register New Patient</h2>
+
+    <form th:action="@{/patient/add}" th:object="${patient}" method="post">
+        <label>Social Security Number</label>
+        <input type="text" th:field="*{socialSecurityNumber}" class="form-control">
+
+        <label>First Name</label>
+        <input type="text" th:field="*{firstName}" class="form-control">
+
+        <label>Last Name</label>
+        <input type="text" th:field="*{lastName}" class="form-control">
+
+        <label>Gender</label>
+        <select th:field="*{gender}" class="form-control">
+            <option value="female">female</option>
+            <option value="male">male</option>
+            <option value="diverse">diverse</option>
+        </select>
+
+        <label>Date of Birth</label>
+        <input type="date" th:field="*{dateOfBirth}" class="form-control">
+
+        <br>
+        <input type="submit" class="btn btn-primary" value="Save">
+    </form>
+</div>
 </body>
 </html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Reservation</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h2>Create Reservation</h2>
+
+    <form action="/reservierung" method="post">
+        <label>Patient</label>
+        <select name="patient.id" class="form-control">
+            <option th:each="p : ${patients}"
+                    th:value="${p.id}"
+                    th:text="${p.firstName + ' ' + p.lastName}">
+            </option>
+        </select>
+
+        <label>Device</label>
+        <select name="geraet.id" class="form-control">
+            <option th:each="g : ${geraete}"
+                    th:value="${g.id}"
+                    th:text="${g.bezeichnung + ' - ' + g.art + ' - Room ' + g.standort}">
+            </option>
+        </select>
+
+        <label>Reservation Time</label>
+        <input type="datetime-local" name="zeit" class="form-control">
+
+        <label>Body Region</label>
+        <input type="text" name="koerperregion" class="form-control">
+
+        <label>Comment</label>
+        <textarea name="kommentar" class="form-control"></textarea>
+
+        <br>
+        <button type="submit" class="btn btn-success">Save Reservation</button>
+    </form>
+</div>
+</body>
+</html>

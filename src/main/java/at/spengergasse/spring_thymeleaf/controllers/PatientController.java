@@ -7,34 +7,31 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import java.time.format.DateTimeFormatter;
 
 @Controller
-@RequestMapping("/patient")
 public class PatientController {
+
     private final PatientRepository patientRepository;
 
     public PatientController(PatientRepository patientRepository) {
         this.patientRepository = patientRepository;
     }
 
-    @GetMapping("/list")
-    public String patients(Model model) {
-        model.addAttribute("patients", patientRepository.findAll());
-        return "patlist";
-    }
-
-    @GetMapping("/add")
-    public String addPatient(Model model) {
+    @GetMapping("/patient/add")
+    public String showPatientForm(Model model) {
         model.addAttribute("patient", new Patient());
         return "add_patient";
     }
 
-    @PostMapping("/add")
-    public String addPatient(@ModelAttribute("patient") Patient patient) {
+    @PostMapping("/patient/add")
+    public String savePatient(@ModelAttribute Patient patient) {
         patientRepository.save(patient);
-        return  "redirect:/patient/list";
+        return "redirect:/patient/list";
+    }
+
+    @GetMapping("/patient/list")
+    public String showPatientList(Model model) {
+        model.addAttribute("patients", patientRepository.findAll());
+        return "patlist";
     }
 }

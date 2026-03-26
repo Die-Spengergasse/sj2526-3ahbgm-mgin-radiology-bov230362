@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Devices</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+  <h2>Select a Device</h2>
+
+  <ul class="list-group">
+    <li class="list-group-item" th:each="g : ${geraete}">
+      <a th:href="@{'/geraet/' + ${g.id}}"
+         th:text="${g.bezeichnung + ' - ' + g.art + ' - Room ' + g.standort}">
+      </a>
+    </li>
+  </ul>
+</div>
+</body>
+</html>

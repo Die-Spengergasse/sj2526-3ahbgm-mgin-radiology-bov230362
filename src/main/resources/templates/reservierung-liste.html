@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Reservation List</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h2>Reservation List</h2>
+
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Patient</th>
+            <th>Reservation Time</th>
+            <th>Body Region</th>
+            <th>Comment</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="r : ${reservierungen}">
+            <td th:text="${r.patient.firstName + ' ' + r.patient.lastName}"></td>
+            <td th:text="${r.zeit}"></td>
+            <td th:text="${r.koerperregion}"></td>
+            <td th:text="${r.kommentar}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
