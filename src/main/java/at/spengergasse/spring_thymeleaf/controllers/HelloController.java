@@ -10,7 +10,7 @@ import java.time.format.DateTimeFormatter;
 @Controller
 public class HelloController {
 
-    @GetMapping("")
+    @GetMapping("/")
     public  String index(Model model) {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd.MM.yyyy");
         model.addAttribute("today", LocalDate.now().format(dtf));

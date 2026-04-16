@@ -13,6 +13,10 @@ public class Patient {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     private String socialSecurityNumber;
     private String firstName;
     private String lastName;

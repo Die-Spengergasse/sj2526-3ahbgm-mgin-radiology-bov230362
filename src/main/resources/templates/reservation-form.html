@@ -12,7 +12,7 @@
     <form th:action="@{/reservation}" th:object="${reservation}" method="post">
 
         <label>Patient</label>
-        <select th:field="*{patient}" class="form-control">
+        <select th:field="*{patient.id}" class="form-control">
             <option th:each="p : ${patients}"
                     th:value="${p.id}"
                     th:text="${p.firstName + ' ' + p.lastName}">
@@ -20,7 +20,7 @@
         </select>
 
         <label>Device</label>
-        <select th:field="*{device}" class="form-control">
+        <select th:field="*{device.id}" class="form-control">
             <option th:each="d : ${devices}"
                     th:value="${d.id}"
                     th:text="${d.name + ' - ' + d.type + ' - ' + d.location}">

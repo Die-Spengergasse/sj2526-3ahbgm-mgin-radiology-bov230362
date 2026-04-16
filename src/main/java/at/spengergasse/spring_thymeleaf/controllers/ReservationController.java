@@ -33,6 +33,16 @@ public class ReservationController {
 
     @PostMapping("/reservation")
     public String saveReservation(@ModelAttribute Reservation reservation) {
+        if (reservation.getPatient() != null && reservation.getPatient().getId() != null) {
+            patientRepository.findById(reservation.getPatient().getId())
+                    .ifPresent(reservation::setPatient);
+        }
+
+        if (reservation.getDevice() != null && reservation.getDevice().getId() != null) {
+            deviceRepository.findById(reservation.getDevice().getId())
+                    .ifPresent(reservation::setDevice);
+        }
+
         reservationRepository.save(reservation);
         return "redirect:/reservation/list";
     }
@@ -48,4 +58,5 @@ public class ReservationController {
         model.addAttribute("reservations", reservationRepository.findByDeviceId(id));
         return "reservation-list";
     }
+
 }

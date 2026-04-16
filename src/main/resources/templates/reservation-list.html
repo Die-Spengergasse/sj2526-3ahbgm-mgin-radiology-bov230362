@@ -21,8 +21,8 @@
         <tbody>
         <tr th:each="r : ${reservations}">
             <td th:text="${r.patient.firstName + ' ' + r.patient.lastName}"></td>
-            <td th:text="${r.time}"></td>
-            <td th:text="${r.bodyregion}"></td>
+            <td th:text="${r.dateTime}"></td>
+            <td th:text="${r.bodyRegion}"></td>
             <td th:text="${r.comment}"></td>
         </tr>
         </tbody>
