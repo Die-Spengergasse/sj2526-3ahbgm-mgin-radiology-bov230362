@@ -7,6 +7,7 @@
 </head>
 <body>
 <div class="container">
+  <div th:if="${errorMessage}" class="alert alert-danger" th:text="${errorMessage}"></div>
   <h2>Select a Device</h2>
 
   <ul class="list-group">

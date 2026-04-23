@@ -1,6 +1,8 @@
 package at.spengergasse.spring_thymeleaf.entities;
 
 import jakarta.persistence.*;
+import org.antlr.v4.runtime.misc.NotNull;
+
 import java.time.LocalDateTime;
 
 @Entity

@@ -8,6 +8,7 @@
 <body>
 <div class="container">
     <h2>Register New Patient</h2>
+    <div th:if="${errorMessage}" class="alert alert-danger" th:text="${errorMessage}"></div>
 
     <form th:action="@{/patient/add}" th:object="${patient}" method="post">
         <label>Social Security Number</label>
@@ -28,6 +29,7 @@
 
         <label>Date of Birth</label>
         <input type="date" th:field="*{dateOfBirth}" class="form-control">
+
 
         <br>
         <input type="submit" class="btn btn-primary" value="Save">

@@ -8,6 +8,8 @@
 <body>
 <div class="container">
     <h2>Create Reservation</h2>
+    <div th:if="${errorMessage}" class="alert alert-danger" th:text="${errorMessage}"></div>
+
 
     <form th:action="@{/reservation}" th:object="${reservation}" method="post">
 

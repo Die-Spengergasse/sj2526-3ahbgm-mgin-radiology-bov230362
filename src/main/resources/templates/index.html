@@ -1,128 +1,122 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Radiology Institute</title>
-
-    <link rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-
+    <title>Radiologie Verwaltung</title>
     <style>
         body {
-            background: #ffff;
             font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            margin: 0;
+            padding: 0;
         }
 
-        .header {
-            text-align: center;
-            margin-top: 40px;
-            margin-bottom: 30px;
-        }
-
-        .header h1 {
-            color: #d63384;
-            font-weight: bold;
-        }
-
-        .card {
-            padding: 25px;
-            border-radius: 15px;
+        .container {
+            width: 80%;
+            max-width: 900px;
+            margin: 60px auto;
             background-color: white;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-            margin-bottom: 20px;
-            transition: transform 0.2s;
+            padding: 40px;
+            border-radius: 14px;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
         }
 
-        .card:hover {
-            transform: translateY(-5px);
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 10px;
         }
 
-        .btn-primary {
-            background-color: #ff4da6;
-            border: none;
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
         }
 
-        .btn-primary:hover {
-            background-color: #e60073;
+        .nav-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
         }
 
-        .btn-success {
-            background-color: #ff944d;
-            border: none;
+        .nav-card {
+            display: block;
+            text-decoration: none;
+            background-color: #eaf2f8;
+            color: #2c3e50;
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid #d6e4f0;
+            transition: 0.2s;
         }
 
-        .btn-success:hover {
-            background-color: #ff751a;
+        .nav-card:hover {
+            background-color: #d9eaf7;
+            transform: translateY(-3px);
         }
 
-        .btn-default {
-            border-radius: 20px;
+        .nav-card h2 {
+            margin: 0 0 10px 0;
         }
 
-        .btn-block {
-            margin-top: 10px;
-            border-radius: 20px;
+        .nav-card p {
+            margin: 0;
+            color: #555;
+        }
+
+        .full-width {
+            grid-column: 1 / -1;
+            max-width: 50%;
+            margin: 0 auto;
+        }
+
+        .error-message {
+            margin-top: 30px;
+            padding: 12px;
+            background-color: #fdecea;
+            color: #b71c1c;
+            border-radius: 8px;
+        }
+
+        @media (max-width: 700px) {
+            .nav-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .full-width {
+                max-width: 100%;
+            }
         }
     </style>
 </head>
 <body>
 
 <div class="container">
+    <h1>Radiologie Verwaltung</h1>
+    <p class="subtitle">
+        Willkommen im System zur Verwaltung von Patienten, Geräten und Reservierungen.
+    </p>
 
-    <div class="header">
-        <h1>Radiology Institute</h1>
-        <p class="text-muted">Manage patients, devices and reservations</p>
-        <p><strong>Date:</strong> <span th:text="${today}"></span></p>
-    </div>
+    <div class="nav-grid">
 
-    <div class="row">
+        <a class="nav-card" th:href="@{/patient}">
+            <h2>Patienten</h2>
+            <p>Neue Patienten anlegen und verwalten.</p>
+        </a>
 
-<!--        Patienten-->
-        <div class="col-md-4">
-            <div class="card text-center">
-                <h3>Patients</h3>
-                <p>Register and view patients</p>
+        <a class="nav-card" th:href="@{/reservation}">
+            <h2>Reservierung erstellen</h2>
+            <p>Neue Termine für Patienten und Geräte eintragen.</p>
+        </a>
 
-                <a href="/patient/add" class="btn btn-primary btn-block">
-                    Register Patient
-                </a>
-
-                <a href="/patient/list" class="btn btn-default btn-block">
-                    Patient List
-                </a>
-            </div>
-        </div>
-
-<!--        Reservierungen-->
-        <div class="col-md-4">
-            <div class="card text-center">
-                <h3>Reservations</h3>
-                <p>Create and manage bookings</p>
-
-                <a href="/reservation" class="btn btn-success btn-block">
-                    Create Reservation
-                </a>
-
-                <a href="/reservation/list" class="btn btn-default btn-block">
-                    View by Device
-                </a>
-            </div>
-        </div>
-
-        <!-- Info -->
-        <div class="col-md-4">
-            <div class="card text-center">
-                <h3>System</h3>
-                <p>Radiology system overview</p>
-
-                <p class="text-muted">
-                    Patients, devices and reservations are connected.
-                </p>
-            </div>
-        </div>
+        <a class="nav-card full-width" th:href="@{/reservation/list}">
+            <h2>Geräte & Termine</h2>
+            <p>Bestehende Reservierungen und Gerätezuteilungen anzeigen.</p>
+        </a>
 
     </div>
 
+    <div th:if="${errorMessage}" class="error-message" th:text="${errorMessage}"></div>
 </div>
 
 </body>
